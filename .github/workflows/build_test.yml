@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # The below action is for the current repo in which the workflow is being triggered to get cloned.
     - name: Checkout code
       uses: actions/checkout@v2
+    # You define a step with uses if it's executing an action or you define a step with run if it's executing a shell script.  
     - name: Set up Python Environment
       uses: actions/setup-python@v2
       with:
@@ -38,12 +40,15 @@ jobs:
       run: zip -r deploy.zip . -x '*.git*'
 
     - name: Deploy to EB
+    # This action provides necessary processes to be automated - see readme
       uses: einaregilsson/beanstalk-deploy@v20
       with:
+      # encapsulatng sensitive information thorugh github secrets
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: django-github-actions-aws
-        environment_name: django-github-actions-aws
+        # providing name of the application and environment name from aws
+        application_name: cicd-pipeline
+        environment_name: Cicdpipeline-env
         version_label: 12348
         region: "us-east-2"
         deployment_package: deploy.zip
