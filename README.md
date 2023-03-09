@@ -11,7 +11,7 @@ Implementing CICD pipelining through github actions and AWS
 
 A CI/CD Pipeline is simply a development practice. It is the practice of hastening the feature release process without compromising on quality.
 
-[](img/project-delivery-process)
+[Figure 1](https://github.com/Siddp278/CICD-pipeline-aws/blob/main/img/project-delivery-process.png)
 We automate steps 3-6 in the diagram above
 
 * *Continuous Integration happens each time the build process is initiated, and tests run on a new change.* *  
