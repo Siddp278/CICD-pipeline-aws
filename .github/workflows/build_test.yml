@@ -43,7 +43,9 @@ jobs:
     # This action provides necessary processes to be automated - see readme
       uses: einaregilsson/beanstalk-deploy@v20
       with:
-      # encapsulatng sensitive information thorugh github secrets
+      # encapsulatng sensitive information thorugh github secrets - 
+      # we get the id-key pair from aws and put them in secrets in actions in setting
+      # We have to create access keys in aws in security credentials - IAM, keys can be created for root user or genera user.
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         # providing name of the application and environment name from aws
